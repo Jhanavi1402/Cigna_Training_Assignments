@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form with Legend</title>
+  <style>
+    fieldset {
+      width: 300px;
+      margin: 30px;
+      padding: 20px;
+      border: 2px solid #555;
+      border-radius: 10px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #333;
+    }
+
+    button:disabled {
+      background-color: gray;
+      color: white;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+<fieldset>
+  <legend>User Login</legend>
+  <label uname="Username">Username:</label><br>
+  <input type="text" id="uname" value=" "><br><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" value=""><br><br>
+  <button id="submitBtn" onclick="checkPassword()">Submit</button>
+  <p id="message" style="color:red;"></p>
+</fieldset>
+
+<script>
+    const correctUsername = "admin"; // correct username
+  const correctPassword = "admin123"; // correct password
+  let attempt = 0; // counter for wrong tries
+
+  function checkPassword() {
+    const input = document.getElementById("password").value;
+    const button = document.getElementById("submitBtn");
+    const msg = document.getElementById("message");
+
+    if (input === correctPassword) {
+      alert("Login successful!");
+      msg.style.color = "green";
+      msg.innerHTML = "Welcome!";
+      attempts = 0; // reset
+    } else {
+      attempts++;
+      alert(" Incorrect password! Attempt " + attempts + " of 3");
+
+      if (attempts >= 3) {
+        alert(" You have entered the wrong password 3 times. Access blocked!");
+        button.disabled = true;
+        msg.style.color = "red";
+        msg.innerHTML = "You are blocked. Please refresh the page to try again.";
+      }
+    }
+
+    // clear password field
+    document.getElementById("password").value = "";
+  }
+</script>
+</body>
+</html>
