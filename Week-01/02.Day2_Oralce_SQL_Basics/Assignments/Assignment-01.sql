@@ -1,4 +1,4 @@
-1.   Check the 15 Queries that we discussed on the Library Management Case Study
+-- 1.   Check the 15 Queries that we discussed on the Library Management Case Study
 -- DDL Operations (Creating Tables with Constraints)
 
 -- Create Authors table
