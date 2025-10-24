@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+</head>
+<body>
+    <h1>Advanced JavaScript - ES6 (Array of Objects with filter())</h1>
+    <hr/>
+
+    <label>Enter Course Name:</label>
+    <input type="text" id="txtCourse" placeholder="e.g. React, Angular, Node" />
+    <button onclick="filterStudents()">Filter Students</button>
+    <button onclick="showAll()">Show All</button>
+
+    <hr/>
+
+    <ul id="list1"></ul>
+
+    <hr/>
+    <footer>
+        <mark>Note: You can filter students by course name using the filter() method.</mark>    
+    </footer>
+
+    <script>
+        // Student data
+        let studentsArray = [
+            {id: 10256, name: "Scott", course: "React"},
+            {id: 10257, name: "John", course: "Angular"},
+            {id: 10258, name: "Sara", course: "Vue"},
+            {id: 10259, name: "Emma", course: "Node"},
+            {id: 10260, name: "David", course: "Express"},
+            {id: 10261, name: "Sophia", course: "React"},
+            {id: 10262, name: "Daniel", course: "Node"}
+        ];
+
+        // Function to display all students
+        function showAll() {
+            displayList(studentsArray);
+        }
+
+        // Function to filter students by course
+        function filterStudents() {
+            let courseName = document.getElementById("txtCourse").value.trim();
+            if (courseName === "") {
+                alert("Please enter a course name to filter!");
+                return;
+            }
+
+            // Using filter() to find students matching the course
+            let filtered = studentsArray.filter(stu => 
+                stu.course.toLowerCase() === courseName.toLowerCase()
+            );
+
+            if (filtered.length > 0) {
+                displayList(filtered);
+            } else {
+                document.getElementById("list1").innerHTML = `<li>No students found for course "${courseName}"</li>`;
+            }
+
+            console.log("Filtered Students:", filtered);
+        }
+
+        // Helper function to display list items
+        function displayList(arr) {
+            let lstObj = document.getElementById("list1");
+            let str = "";
+
+            for (let item of arr) {
+                str += `<li>Mr./Mrs. ${item.name} joined in ${item.course} course</li>`;
+            }
+
+            lstObj.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
