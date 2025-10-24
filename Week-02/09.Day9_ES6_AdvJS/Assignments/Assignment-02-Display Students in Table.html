@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Students in Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        caption {
+            caption-side: top;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advanced JavaScript - ES6 (Array of Objects)</h1>
+    <hr/>
+    <button onclick="button1Click()">Show Students</button>
+    <hr/>
+
+    <div id="tableContainer"></div>
+
+    <hr/>
+    <footer>
+        <mark>Note: Check the console window to see the result.</mark>
+    </footer>
+
+    <script>
+        function button1Click() {
+            let studentsArray = [
+                { id: 10256, name: "Scott", course: "React" },
+                { id: 10257, name: "John", course: "Angular" },
+                { id: 10258, name: "Alex", course: "Vue" },
+                { id: 10259, name: "Robert", course: "Node" },
+                { id: 10260, name: "Steve", course: "Express" },
+            ];
+
+            let container = document.getElementById("tableContainer");
+
+            // Start table HTML
+            let str = `
+                <table>
+                    <caption>Student Course Details</caption>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Message</th>
+                    </tr>
+            `;
+
+            // Add table rows dynamically
+            for (let item of studentsArray) {
+                str += `
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.course}</td>
+                        <td>Mr./Mrs. ${item.name} joined in ${item.course} course</td>
+                    </tr>
+                `;
+            }
+
+            str += "</table>";
+            container.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
