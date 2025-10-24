@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Course Management</title>
+<style>
+    body { font-family: Arial; margin: 30px; }
+    input, button { margin: 5px; padding: 5px; }
+</style>
+</head>
+<body>
+<h2>Course Management</h2>
+
+<input type="text" id="courseName" placeholder="Enter course name">
+<br>
+<button onclick="showCourses()">Show</button>
+<button onclick="addCourse()">Add</button>
+<button onclick="removeCourse()">Remove</button>
+
+<h3>Available Courses:</h3>
+<ul id="courseList"></ul>
+
+<script>
+let courses = ["Java", "Python", "C++", "JavaScript"];
+
+function showCourses() {
+    let list = document.getElementById("courseList");
+    list.innerHTML = "";
+    courses.forEach(course => {
+        let li = document.createElement("li");
+        li.textContent = course;
+        list.appendChild(li);
+    });
+}
+
+function addCourse() {
+    let newCourse = document.getElementById("courseName").value.trim();
+    if (newCourse && !courses.includes(newCourse)) {
+        courses.push(newCourse);
+        alert(newCourse + " added successfully!");
+        showCourses();
+    } else {
+        alert("Enter a valid or non-duplicate course name.");
+    }
+}
+
+function removeCourse() {
+    let courseToRemove = document.getElementById("courseName").value.trim();
+    let index = courses.indexOf(courseToRemove);
+    if (index !== -1) {
+        courses.splice(index, 1);
+        alert(courseToRemove + " removed successfully!");
+        showCourses();
+    } else {
+        alert("Course not found!");
+    }
+}
+</script>
+</body>
+</html>
