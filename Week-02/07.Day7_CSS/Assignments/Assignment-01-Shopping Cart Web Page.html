@@ -5,131 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Best Clothing Collection</title>
   <style>
-    /* BASIC STYLES */
-    body {
+    * {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0d0e0d;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f6fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
     header {
       background-color: #04325f;
       color: white;
       text-align: center;
-      padding: 15px 0;
+      padding: 30px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
-    /* NAVBAR */
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #dbe4ee;
+    }
+
     nav {
-      background-color: #04325f;
+      background-color: #02274a;
     }
 
     .nav-links {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       list-style: none;
-      margin: 0;
-      padding: 15px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: white;
       text-decoration: none;
-      padding: 10px 16px;
+      padding: 14px 20px;
       display: block;
+      transition: background 0.3s;
     }
 
     .nav-links a:hover {
-      background-color: #6b6c6e;
+      background-color: #0a4b88;
       border-radius: 4px;
     }
 
-    /* MENU BUTTON */
     .menu-toggle {
       display: none;
-      background-color: #6b6c6e;
+      background-color: #04325f;
       color: white;
-      border: 5px;
+      border: none;
       width: 100%;
       text-align: left;
-      padding: 12px 16px;
+      padding: 14px 20px;
       font-size: 18px;
       cursor: pointer;
     }
 
-    /* PROPERTY SECTION */
     section {
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      background-color: white;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
     }
 
     h2 {
-      color: #6b6c6e;
+      color: #04325f;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     .properties {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 15px;
+      gap: 25px;
+      justify-content: center;
     }
 
     article {
-      background-color: #6b6c6e;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 10px;
-      width: calc(33% - 20px);
-      box-sizing: border-box;
+      background-color: #f8f8f8;
+      border-radius: 10px;
+      overflow: hidden;
+      width: calc(25% - 20px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 
     article img {
       width: 100%;
-      border-radius: 6px;
+      height: 250px;
+      object-fit: contain; /* ensures full image is visible */
+      background-color: #fff; /* neat background behind transparent or small images */
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
     }
 
     article h3 {
-      margin: 10px 5px 5px;
+      margin: 10px;
+      font-size: 1.05rem;
+      color: #04325f;
+    }
+
+    article p {
+      margin: 0 10px 10px;
+      color: #333;
+    }
+
+    article del {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .btn-cart {
+      display: block;
+      margin: 10px;
+      padding: 10px 0;
+      text-align: center;
+      background-color: #04325f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-cart:hover {
+      background-color: #0a4b88;
+    }
+
+    section p {
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: auto;
     }
 
     footer {
-      background-color: #6b6c6e;
+      background-color: #02274a;
       color: white;
       text-align: center;
-      padding: 15px 0;
-      margin-top: 20px;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.95rem;
     }
 
-    /* RESPONSIVENESS */
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
+      article {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 600px) {
       article {
         width: 100%;
       }
 
-      /* Show menu button */
-      .menu-toggle {  
+      .menu-toggle {
         display: block;
       }
 
-      /* Hide nav links by default */
       .nav-links {
         display: none;
         flex-direction: column;
         text-align: left;
       }
 
-      /* Checkbox trick for toggle */
       #menu-checkbox:checked + .menu-toggle + .nav-links {
         display: flex;
       }
 
       .nav-links a {
-        padding: 12px 20px;
-        border-top: 1px solid rgba(255,255,255,0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
       }
     }
   </style>
@@ -140,56 +210,59 @@
     <h1>Best Clothing Collection</h1>
     <p>Elevate Your Everyday Style</p>
   </header>
+
   <nav>
-    <!-- Hidden checkbox for toggle -->
     <input type="checkbox" id="menu-checkbox" style="display:none;">
     <label for="menu-checkbox" class="menu-toggle">☰ Menu</label>
-
     <ul class="nav-links">
-      <li><a href="#">T-shirt</a></li>
-      <li><a href="#">Jacket</a></li>
-      <li><a href="#">Pant</a></li>
-      <li><a href="#">Short</a></li>
-      <li><a href="#">Hoodie</a></li>
+      <li><a href="#">T-Shirts</a></li>
+      <li><a href="#">Jackets</a></li>
+      <li><a href="#">Pants</a></li>
+      <li><a href="#">Shorts</a></li>
+      <li><a href="#">Hoodies</a></li>
     </ul>
   </nav>
 
-   <section>
-    <h2>Adult Ultra cotton T-shirt</h2>
+  <section>
+    <h2>Adult Ultra Cotton Collection</h2>
     <div class="properties">
       <article>
         <img src="https://www.fc-moto.de/WebRoot/FCMotoDB/Shops/10207048/5E85/A97B/F581/2309/28CD/AC1E/1409/D792/4200-2_ml.jpg" alt="T-shirt">
-        <h3>Simple T-shirt for daily use</h3>
-        <p>$ 29.99 <del>$ 35.99</del></p>
+        <h3>Simple T-shirt for Daily Use</h3>
+        <p class="price">$29.99 <del>$35.99</del></p>
+        <button class="btn-cart">Add to Cart</button>
       </article>
 
       <article>
         <img src="https://www.alphabroder.com/prodimg/hires/td011_00_z_QRT.jpg" alt="Short Sleeve">
-        <h3>Athletic Men's Short sleeve</h3>
-        <p>$ 65.99 <del>$ 75.99</del></p>
+        <h3>Athletic Men's Short Sleeve</h3>
+        <p class="price">$65.99 <del>$75.99</del></p>
+        <button class="btn-cart">Add to Cart</button>
       </article>
 
       <article>
-        <img src="https://i.ebayimg.com/images/g/j9EAAeSwxNZozDI3/s-l1600.webp" alt="Under Armour UA tech tshirt">
-        <h3>Under Armour UA tech tshirt</h3>
-        <p>$ 25.99 <del>$ 45.99</del></p>
+        <img src="https://i.ebayimg.com/images/g/j9EAAeSwxNZozDI3/s-l1600.webp" alt="Under Armour">
+        <h3>Under Armour UA Tech T-shirt</h3>
+        <p class="price">$25.99 <del>$45.99</del></p>
+        <button class="btn-cart">Add to Cart</button>
       </article>
 
       <article>
-        <img src="https://tse1.mm.bing.net/th/id/OIP.9pqBPeNPPPldQwiDKVOT1AHaKB?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="women's short sleeve">
-        <h3>women's basic short sleeve</h3>
-        <p>$ 45.99 <del>$ 50.99</del></p>
+        <img src="https://tse1.mm.bing.net/th/id/OIP.9pqBPeNPPPldQwiDKVOT1AHaKB?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Women's short sleeve">
+        <h3>Women's Basic Short Sleeve</h3>
+        <p class="price">$45.99 <del>$50.99</del></p>
+        <button class="btn-cart">Add to Cart</button>
       </article>
     </div>
   </section>
 
   <section>
     <h2>About Us</h2>
-    <p>we bring you the latest trends and timeless styles, crafted to make you look and feel your best.</p>
+    <p>We bring you the latest trends and timeless styles, crafted to make you look and feel your best. Our clothing collection combines quality, comfort, and confidence for every occasion.</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Best Clothing Collection in Bangalore | All Rights Reserved</p>
+    <p>&copy; 2025 Best Clothing Collection, Bangalore | All Rights Reserved</p>
   </footer>
 
 </body>
