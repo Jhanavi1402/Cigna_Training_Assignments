@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Product Dynamically</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+#productSection {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+.product {
+width: 200px;
+border: 2px solid #007bff;
+border-radius: 10px;
+padding: 10px;
+text-align: center;
+box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+.product img {
+width: 100%;
+height: 120px;
+object-fit: cover;
+border-radius: 5px;
+}
+.product span {
+font-weight: bold;
+display: block;
+margin-top: 8px;
+}
+</style>
+</head>
+<body>
+<h1>Dynamic Product Addition</h1>
+<button onclick="addProduct()">Add Product</button>
+<hr>
+<section id="productSection"></section>
+
+
+<script>
+function addProduct() {
+// Prompt user for product details
+let name = prompt("Enter Product Name:");
+let desc = prompt("Enter Product Description:");
+let imgUrl = prompt("Enter Image URL (or leave blank for default):");
+
+
+// Default image if user leaves it empty
+if (!imgUrl) {
+imgUrl = "https://via.placeholder.com/200x120?text=Product";
+}
+
+
+// Create div for product
+const productDiv = document.createElement("div");
+productDiv.className = "product";
+
+
+// Create image tag
+const img = document.createElement("img");
+img.src = imgUrl;
+img.alt = name;
+
+
+// Create span for name
+const span = document.createElement("span");
+span.textContent = name || "Unnamed Product";
+
+
+// Create paragraph for description
+const para = document.createElement("p");
+para.textContent = desc || "No description available.";
+
+
+// Append to product div
+productDiv.appendChild(img);
+productDiv.appendChild(span);
+productDiv.appendChild(para);
+
+
+// Append to section
+document.getElementById("productSection").appendChild(productDiv);
+}
+</script>
+</body>
+</html>
