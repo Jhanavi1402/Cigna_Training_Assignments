@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Table - Apply Styles</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #222;
+            color: white;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: teal;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: rgb(222, 78, 159);
+        }
+    </style>
+</head>
+<body>
+    <h2>Employee Data Table</h2>
+
+    <table id="empTable">
+        <tr>
+            <th>Emp ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Sandhya</td>
+            <td>IT</td>
+            <td>55000</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Harsha</td>
+            <td>HR</td>
+            <td>50000</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>Sanjana</td>
+            <td>Finance</td>
+            <td>60000</td>
+        </tr>
+        <tr>
+            <td>104</td>
+            <td>Akshay</td>
+            <td>Marketing</td>
+            <td>48000</td>
+        </tr>
+        <tr>
+            <td>105</td>
+            <td>Ravi</td>
+            <td>Sales</td>
+            <td>52000</td>
+        </tr>
+    </table>
+
+    <button onclick="applyRowStyles()">Apply Styles</button>
+
+    <script>
+        function applyRowStyles() {
+            // Accessing table rows using DOM method
+            let rows = document.getElementById("empTable").getElementsByTagName("tr");
+
+            // Loop through rows and apply alternate colors
+            for (let i = 1; i < rows.length; i++) {  // start from 1 to skip header
+                if (i % 2 === 0) {
+                    rows[i].style.backgroundColor = "#f2f2f2";  // light gray
+                } else {
+                    rows[i].style.backgroundColor = "#d1e7dd";  // light green
+                }
+            }
+        }
+    </script>
+</body>
+</html>
