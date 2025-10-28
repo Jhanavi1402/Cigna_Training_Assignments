@@ -49,7 +49,7 @@ function App() {
         <h2>Store Information</h2>
         <p><strong>Location:</strong> {storeInfo.location}</p>
         <p><strong>Founded:</strong> {storeInfo.founded}</p>
-        <p><strong>Rating:</strong> {storeInfo.rating} ⭐⭐⭐⭐</p>
+        <p><strong>Rating:</strong> {storeInfo.rating}</p>
         <hr />
       </section>
 
