@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Total Calculator</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #4d4d51;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.container {
+border: 4px solid rgb(72, 233, 14);
+padding: 20px 40px;
+background: white;
+box-shadow: 0 0 10px rgba(239, 4, 4, 0.201);
+border-radius: 12px;
+}
+h2 {
+text-align: center;
+color: rgb(0, 128, 28);
+}
+label {
+display: block;
+margin: 10px 0 5px;
+font-weight: bold;
+}
+input {
+width: 100%;
+padding: 8px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 6px;
+}
+button {
+margin-top: 15px;
+background-color: purple;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+font-size: 16px;
+}
+button:hover {
+background-color: #5e007e;
+}
+.result {
+margin-top: 20px;
+font-size: 18px;
+font-weight: bold;
+color: #333;
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+<h2>Product Total Calculator</h2>
+<label>Product Name:</label>
+<input type="text" id="pname" placeholder="Enter Product Name">
+
+
+<label>Unit Price:</label>
+<input type="number" id="price" placeholder="Enter Unit Price">
+
+
+<label>Quantity:</label>
+<input type="number" id="qty" placeholder="Enter Quantity">
+
+
+<button onclick="calculateTotal()">Get Total</button>
+
+
+<div class="result" id="result"></div>
+</div>
+
+
+<script>
+function calculateTotal() {
+let name = document.getElementById('pname').value;
+let price = parseFloat(document.getElementById('price').value);
+let qty = parseInt(document.getElementById('qty').value);
+let total = price * qty;
+let discount = 0;
+
+
+if (qty > 30) {
+discount = 0.20; 
+} else if (qty > 20) {
+discount = 0.15; 
+} else if (qty > 10) {
+discount = 0.10; 
+}
+
+
+let discountAmount = total * discount;
+let finalAmount = total - discountAmount;
+
+
+document.getElementById('result').innerHTML = 
+`<span style='color:green;'>Total Amount: ₹${finalAmount.toFixed(2)}</span>`;
+}
+</script>
+
+
+</body>
+</html>

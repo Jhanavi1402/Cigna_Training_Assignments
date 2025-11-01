@@ -1,0 +1,148 @@
+<!-- Pizza order form -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Italian Pizza — Order Form</title>
+</head>
+<body>
+  <main>
+    <section aria-labelledby="pizza-heading">
+      <header>
+        <h1 id="pizza-heading">WELCOME TO ITALIAN PIZZA!</h1>
+        <p>We deliver pizza in 40 minutes max. If not - Pizza's on us!</p>
+      </header>
+
+      <form id="pizza-order" action="#" method="post" novalidate>
+        <!-- Email -->
+        <div>
+          <label for="email">Email</label><br/>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+            aria-required="true"
+          />
+        </div>
+        <br>
+
+        <!-- Phone (three small inputs like in the design) -->
+        <fieldset>
+          <legend>Phone</legend>
+          <div>
+            <label for="phone-area" class="sr-only"></label>
+            <input
+              id="phone-area"
+              name="phone_area"
+              type="tel"
+              inputmode="numeric"
+              pattern="\d{2,5}"
+              placeholder="Area"
+              aria-label="Area code"
+              size="5"
+            />
+            <label for="phone-local1" class="sr-only"></label>
+            <input
+              id="phone-local1"
+              name="phone_local1"
+              type="tel"
+              inputmode="numeric"
+              pattern="\d{3,4}"
+              placeholder="Local"
+              aria-label="Local number part 1"
+              size="5"
+            />
+            <label for="phone-local2" class="sr-only"></label>
+            <input
+              id="phone-local2"
+              name="phone_local2"
+              type="tel"
+              inputmode="numeric"
+              pattern="\d{3,4}"
+              placeholder="Local"
+              aria-label="Local number part 2"
+              size="5"
+            />
+          </div>
+          <br>
+        </fieldset>
+
+        <!-- Number of slices -->
+        <div>
+          <label for="slices">Number of slices</label><br/>
+          <input
+            id="slices"
+            name="slices"
+            type="number"
+            min="1"
+            max="24"
+            placeholder="e.g. 8"
+            inputmode="numeric"
+          />
+        </div>
+        <br>
+
+        <!-- Pizza size (radio) -->
+        <fieldset>
+          <legend>Pizza Size</legend>
+          <div>
+            <input type="radio" id="size-8" name="size" value="8" checked />
+            <label for="size-8">8-inch</label>
+
+            <input type="radio" id="size-10" name="size" value="10" />
+            <label for="size-10">10-inch</label>
+
+            <input type="radio" id="size-12" name="size" value="12" />
+            <label for="size-12">12-inch</label>
+
+            <input type="radio" id="size-14" name="size" value="14" />
+            <label for="size-14">14-inch</label>
+          </div>
+          <br>
+        </fieldset>
+
+        <!-- Toppings (checkboxes) -->
+        <fieldset>
+          <legend>Toppings</legend>
+          <div>
+            <input type="checkbox" id="top-pepperoni" name="toppings" value="pepperoni" />
+            <label for="top-pepperoni">Pepperoni</label>
+
+            <input type="checkbox" id="top-onions" name="toppings" value="onions" />
+            <label for="top-onions">Onions</label>
+
+            <input type="checkbox" id="top-mushrooms" name="toppings" value="mushrooms" />
+            <label for="top-mushrooms">Mushrooms</label>
+
+            <input type="checkbox" id="top-sausage" name="toppings" value="sausage" />
+            <label for="top-sausage">Sausage</label>
+          </div>
+          <br>
+        </fieldset>
+
+        <!-- Terms acceptance -->
+        <div>
+          <input
+            type="checkbox"
+            id="agree-terms"
+            name="agree_terms"
+            value="yes"
+            required
+            aria-required="true"
+          />
+          <label for="agree-terms">I agree to the TERMS AND CONDITIONS</label>
+        </div>
+        <br>
+
+        <!-- Submit button -->
+        <div>
+          <button type="submit">Order Now</button>
+        </div>
+        <br>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

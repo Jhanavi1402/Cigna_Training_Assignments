@@ -1,0 +1,36 @@
+Study the following items from the Git
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.   What does git stash do?
+git stash temporarily saves (or “stashes”) your uncommitted changes in a safe area so you can switch branches or work on something else without losing your work.
+
+2.   What does git log show?
+git log displays the history of commits in a repository, showing details like commit hash, author, date, and commit message.
+
+3.   What does git branch do?
+git branch manages branches in a repository.
+git branch → lists all branches
+git branch <name> → creates a new branch
+git branch -d <name> → deletes a branch
+
+4.   What does git checkout do?
+git checkout is used to switch between branches or commits.
+Examples:
+git checkout main              # switch to main branch
+git checkout feature-login     # switch to another branch
+git checkout -b new-feature    # create and switch to new branch
+
+5.   How to implement merging in git? 
+Merging combines changes from one branch into another.
+Typically, you merge a feature branch into the main branch.
+Example:
+git checkout main
+git merge feature-login
+
+6.   Diff. between  merge and rebase?
+Merge combines two branches by creating a new “merge commit” that preserves the complete history of both branches. 
+Rebase, on the other hand, moves or reapplies commits from one branch on top of another, creating a cleaner and linear commit history. 
+Merge is preferred for shared branches, while rebase is often used to tidy up local work before merging.
+
+7.   What is .gitignore used for? 
+.gitignore tells Git which files or folders to ignore — i.e., not to track or commit.
